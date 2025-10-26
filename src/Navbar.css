@@ -1,0 +1,71 @@
+/* 상단바 기본 스타일 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+  color: #00bcd4;
+}
+
+/* 반응형 토글 버튼 */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+}
+
+/* 작은 화면일 때 */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background-color: #444;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
