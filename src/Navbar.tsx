@@ -1,13 +1,22 @@
 import React from "react";
 import "./Navbar.css";
+type ViewType = 'profile' | 'wordgame';
 interface NavbarProps {
   onClearClick: () => void;
+  onNavigate: (view: ViewType) => void; // onNavigate 타입을 추가합니다.
 }
 
-const Navbar = ({ onClearClick }: NavbarProps) => {
-const handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    onClearClick();
+const Navbar = ({ onClearClick, onNavigate }: NavbarProps) => {
+  const handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      onClearClick();
+    };
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>, 
+    view: 'profile' | 'wordgame'
+  ) => {
+    e.preventDefault(); // 페이지가 새로고침되거나 #으로 점프하는 것을 막습니다.
+    onNavigate(view);   // 부모(App)에게 "이 화면으로 바꿔줘"라고 알립니다.
   };
 
   return (
@@ -23,7 +32,10 @@ const handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
           <a href="#about">About</a>
         </li>
         <li>
-          <a href="#services">Services</a>
+          {/* Services를 누르면 'wordgame'을 보여줍니다. */}
+            <a href="#services" onClick={(e) => handleNavClick(e, 'wordgame')}>
+            Services
+            </a>
         </li>
         <li>
           <a href="#contact">Contact</a>
