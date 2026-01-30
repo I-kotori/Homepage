@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import "./Wordgame.css";
+import "./wordgame.css";
 
 const Wordgame = () => {
     // 1. 백엔드에서 받아온 단어를 저장할 상태

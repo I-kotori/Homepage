@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import ImageSlide from "./ImageSlide";
 import MarkdownViewer from './MarkdownViewer';
 import profileContent from './myProfile.md?raw';
-import Wordgame from './Wordgame';
+import Wordgame from './wordgame';
 import "./Navbar.css"
 import "./ImageSlide.css"
 import "./context.css"
